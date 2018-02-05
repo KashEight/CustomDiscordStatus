@@ -1,0 +1,2 @@
+# CustomDiscordStatus
+Customize playing details.
