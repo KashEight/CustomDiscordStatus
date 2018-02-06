@@ -1,0 +1,16 @@
+{
+    "name": "CustomDiscordStatus",
+    "description": "Change playing details of Discord",
+    "author": "kash(Hytus)",
+    "contact": "https://github.com/KashEight",
+    "version": "v0.0.1",
+    "priority": 810,
+    "blt_version": 2,
+    "color": "114 137 218",
+    "hooks": [
+        {
+            "hook_id": "lib/managers/platformmanager",
+            "script_path": "load.lua"
+        }
+    ]
+}
