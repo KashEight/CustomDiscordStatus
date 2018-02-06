@@ -21,7 +21,7 @@ if not CustomDiscordStatus._setup then
                 log("[Error] BLT could not open script '" .. file_name .. "'.")
             end
         elseif self._mod_file[baseScript] then
-        end
+            log("pass")
         else
             log("[Error] Unregistered script called: " .. baseScript)
         end
