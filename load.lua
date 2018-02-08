@@ -67,6 +67,9 @@ if not CustomDiscordStatus._setup then
         default_file:close()
     end
 
+    function CustomDiscordStatus:InitAllMenus()
+    end
+
     function CustomDiscordStatus:GetOption(id)
         return self._data[id]
     end
@@ -85,3 +88,11 @@ end
 if RequiredScript then
     CustomDiscordStatus:doScript(RequiredScript)
 end
+
+--[[
+    TODO:
+    Write MenuManager.lua - High
+    Write menus - High
+    Write InitAllMenus() method - High
+    Write realtime update - Low
+]]
