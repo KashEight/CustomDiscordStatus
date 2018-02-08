@@ -19,6 +19,10 @@ if not CustomDiscordStatus._setup then
     CustomDiscordStatus._mod_files = {
         ["strings"] = "strings.json"
     }
+    CustomDiscordStatus._language = {
+        [1] = "english",
+        [2] = "japanese"
+    }
 
     function CustomDiscordStatus:doScript(script)
         local baseScript = script:lower()
