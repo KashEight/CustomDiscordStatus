@@ -13,7 +13,8 @@ if not CustomDiscordStatus._setup then
         ["lib/managers/menumanager"] = "MenuManager.lua"
     }
     CustomDiscordStatus._menus = {
-        "customdiscordstatus_option.json"
+        "customdiscordstatus_options.json"
+        "customdiscordstatus_core.json"
     }
     CustomDiscordStatus._mod_files = {
         ["strings"] = "strings.json"
@@ -94,5 +95,6 @@ end
     Write MenuManager.lua - High
     Write menus - High
     Write InitAllMenus() method - High
+    Write PlatformManager.lua - Middle
     Write realtime update - Low
 ]]

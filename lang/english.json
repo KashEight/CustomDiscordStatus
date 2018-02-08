@@ -1,0 +1,14 @@
+{
+    "customdiscordstatus_options": "CustomDiscordStatus",
+    "customdiscordstatus_options_desc": "Setting CustomDiscordStatus",
+    "customdiscordstatus_core": "Core options",
+    "customdiscordstatus_core_desc": "Setting core options",
+    "lang": "Language",
+    "lang_desc": "Select language you use.",
+    "custom_strings": "Custom strings",
+    "custom_strings_desc": "Enable custom strings. (Can edit at strings.json)",
+    "show_host": "Show host",
+    "show_host_desc": "Show host on Discord.",
+    "show_member": "Show member",
+    "show_member_desc": "Show member on Discord."
+}
