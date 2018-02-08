@@ -9,7 +9,7 @@ function WinPlatformManager:set_rich_presence_discord(name)
     if name == "Idle" then
         Discord:set_status("ドリップコーヒー", "香風智乃のおパンツ")
     elseif name == "MPLobby" then
-        local peers = managers.network:session():all_peers()
+        local peers = CustomDiscordStatus:Peers()
         local base_str = "Host: " .. peers[1]:name() .. ", Member: " .. peers[1]:name()
 
         if #peers == 1 then
@@ -27,15 +27,24 @@ function WinPlatformManager:set_rich_presence_discord(name)
 	end
 end
 
---[[
 function WinPlatformManager:update_discord_heist()
     update_discord_heist_original(self)
 
-    local name = self._current_rich_presence
-
     if name == "MPLobby" then
-        local peer = managers.network:session():local_peer():name()
-        Discord:set_status("Hosted by " .. peer[0], "Lobby")
+        local peers = CustomDiscordStatus:Peers()
+        local base_str = "Host: " .. peers[1]:name() .. ", Member: " .. peers[1]:name()
+
+        if #peers == 1 then
+            Discord:set_status(base_str, "Lobby")
+        elseif #peers == 2 then
+            local member = peers[2]:name()
+            Discord:set_status(base_str .. ", " .. member, "Lobby")
+        elseif #peers == 3 then
+            local member = peers[2]:name() .. ", " .. peers[3]:name()
+            Discord:set_status(base_str .. ", " .. member, "Lobby")
+        elseif #peers == 4 then
+            local member = peers[2]:name() .. ", " .. peers[3]:name() .. ", " .. peers[4]:name()
+            Discord:set_status(base_str .. ", " .. member, "Lobby")
+        end
     end
 end
-]]
