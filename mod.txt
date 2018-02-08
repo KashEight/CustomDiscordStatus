@@ -8,9 +8,7 @@
     "blt_version": 2,
     "color": "114 137 218",
     "hooks": [
-        {
-            "hook_id": "lib/managers/platformmanager",
-            "script_path": "load.lua"
-        }
+        {"hook_id": "lib/managers/platformmanager","script_path": "Load.lua"}
+        {"hook_id": "lib/managers/menumanager", "script_path": "Load.lua"}
     ]
 }
