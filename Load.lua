@@ -9,11 +9,11 @@ if not CustomDiscordStatus._setup then
     CustomDiscordStatus._data = {}
     CustomDiscordStatus._data_path = SavePath .. "CustomDiscordStatus.json"
     CustomDiscordStatus._hooks = {
-        ["lib/managers/platformmanager"] = "PlatformManager.lua"
+        ["lib/managers/platformmanager"] = "PlatformManager.lua",
         ["lib/managers/menumanager"] = "MenuManager.lua"
     }
     CustomDiscordStatus._menus = {
-        "customdiscordstatus_options.json"
+        "customdiscordstatus_options.json",
         "customdiscordstatus_core.json"
     }
     CustomDiscordStatus._mod_files = {
@@ -23,23 +23,6 @@ if not CustomDiscordStatus._setup then
         [1] = "english",
         [2] = "japanese"
     }
-
-    function CustomDiscordStatus:doScript(script)
-        local baseScript = script:lower()
-        if self._hooks[baseScript] then
-            local file_name = self._path .. "lua/" .. self._hooks[baseScript]
-            if io.file_is_readable(file_name) then
-                log("[Info] CustomDiscordStatus was succeessfully loaded!")
-                dofile(file_name)
-            else
-                log("[Error] BLT could not open script '" .. file_name .. "'.")
-            end
-        elseif self._mod_file[baseScript] then
-            log("pass")
-        else
-            log("[Error] Unregistered script called: " .. baseScript)
-        end
-    end
 
     function CustomDiscordStatus:Save()
         local file = io.open(self._data_path, "w+")
@@ -73,6 +56,9 @@ if not CustomDiscordStatus._setup then
     end
 
     function CustomDiscordStatus:InitAllMenus()
+        for _, json_file in pairs(self._menus) do
+            MenuHelper:LoadFromJsonFile(self._path .. "menu/" .. json_file, self, self._data)
+        end
     end
 
     function CustomDiscordStatus:GetOption(id)
@@ -87,7 +73,25 @@ if not CustomDiscordStatus._setup then
         return self:Session():all_peers()
     end
 
+    function CustomDiscordStatus:doScript(script)
+        local baseScript = script:lower()
+        if self._hooks[baseScript] then
+            local file_name = self._path .. "lua/" .. self._hooks[baseScript]
+            if io.file_is_readable(file_name) then
+                dofile(file_name)
+            else
+                log("[Error] BLT could not open script '" .. file_name .. "'.")
+            end
+        elseif self._mod_file[baseScript] then
+            log("pass")
+        else
+            log("[Error] Unregistered script called: " .. baseScript)
+        end
+    end
+    
     CustomDiscordStatus._setup = true
+
+    log("[CustomDiscordStatus Info] CustomDiscordStatus was succeessfully loaded!")
 end
 
 if RequiredScript then

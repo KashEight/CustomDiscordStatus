@@ -5,6 +5,8 @@
     "customdiscordstatus_core_desc": "Setting core options",
     "lang": "Language",
     "lang_desc": "Select language you use.",
+    "lang_english": "English",
+    "lang_japanese": "日本語",
     "custom_strings": "Custom strings",
     "custom_strings_desc": "Enable custom strings. (Can edit at strings.json)",
     "show_host": "Show host",
