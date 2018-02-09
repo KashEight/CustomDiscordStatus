@@ -1,6 +1,4 @@
-if not Steam then
-    return
-end
+if not Steam then return end
 
 CustomDiscordStatus = CustomDiscordStatus or {}
 
@@ -82,7 +80,7 @@ if not CustomDiscordStatus._setup then
             else
                 log("[Error] BLT could not open script '" .. file_name .. "'.")
             end
-        elseif self._mod_file[baseScript] then
+        elseif self._mod_files[baseScript] then
             log("pass")
         else
             log("[Error] Unregistered script called: " .. baseScript)
@@ -100,9 +98,6 @@ end
 
 --[[
     TODO:
-    Write MenuManager.lua - High
-    Write menus - High
-    Write InitAllMenus() method - High
     Write PlatformManager.lua - Middle
     Write realtime update - Low
 ]]
