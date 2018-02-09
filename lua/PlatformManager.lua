@@ -8,7 +8,7 @@ function WinPlatformManager:set_rich_presence_discord(name)
 
     if CustomDiscordStatus:GetOption("custom_strings") then
         if name == "Idle" then
-            Discord:set_status("Note: This option won't be added xD", "SydneyHUD will be update soon...")
+            Discord:set_status("CustomDiscordStatus", "Debugging: ")
         elseif name == "MPLobby" then
             local peers = CustomDiscordStatus:Peers()
 
@@ -29,7 +29,7 @@ function WinPlatformManager:set_rich_presence_discord(name)
                 end
             end
         end
-	end
+    end
 end
 
 function WinPlatformManager:update_discord_heist()
