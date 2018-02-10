@@ -1,0 +1,18 @@
+{
+    "heist": {
+        "hoge": "fuwa",
+        "foo": "bar"
+    },
+    "heist_image": {
+        "hoge": "fuwa"
+    },
+    "difficulty": {
+        "hoge": "fuwa"
+    },
+    "day": {
+        "hoge": "fuwa"
+    },
+    "character": {
+        "hoge": "fuwa"
+    }
+}

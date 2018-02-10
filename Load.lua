@@ -5,6 +5,8 @@ CustomDiscordStatus = CustomDiscordStatus or {}
 if not CustomDiscordStatus._setup then
     CustomDiscordStatus._path = ModPath
     CustomDiscordStatus._data = {}
+    CustomDiscordStatus._data_string = {}
+    CustomDiscordStatus._data_string_path = SavePath .. "CustomDiscordStatusStrings.json"
     CustomDiscordStatus._data_path = SavePath .. "CustomDiscordStatus.json"
     CustomDiscordStatus._hooks = {
         ["lib/managers/platformmanager"] = "PlatformManager.lua",
@@ -14,12 +16,16 @@ if not CustomDiscordStatus._setup then
         "customdiscordstatus_options.json",
         "customdiscordstatus_core.json"
     }
-    CustomDiscordStatus._mod_files = {
-        ["strings"] = "strings.json"
-    }
     CustomDiscordStatus._language = {
         [1] = "english",
         [2] = "japanese"
+    }
+    CustomDiscordStatus._strings = {
+        "strings_difficulty",
+        "strings_character",
+        "strings_day",
+        "strings_heist_image",
+        "strings_heist"
     }
 
     function CustomDiscordStatus:Save()
@@ -48,7 +54,8 @@ if not CustomDiscordStatus._setup then
     end
 
     function CustomDiscordStatus:LoadDefault()
-        local default_file = io.open(self._path .. "menu/customdiscordstatus_default.json")
+        local default_file = io.open(self._path .. "menu/customdiscordstatus_default.json", "r")
+
         self._data = json.decode(default_file:read("*a"))
         default_file:close()
     end
@@ -57,6 +64,50 @@ if not CustomDiscordStatus._setup then
         for _, json_file in pairs(self._menus) do
             MenuHelper:LoadFromJsonFile(self._path .. "menu/" .. json_file, self, self._data)
         end
+    end
+
+    function CustomDiscordStatus:SaveStrings()
+        local file = io.open(self._data_string_path, "w+")
+
+        if file then
+            file:write(json.encode(self._data_string))
+            file:close()
+        end
+    end
+
+    function CustomDiscordStatus:LoadStrings()
+        self:LoadDefaultStrings()
+
+        for _, string_file in pairs(self._strings) do
+            local detail = string.gsub(string_file, "^strings_", "")
+            local file = io.open(self._path .. "strings/" .. string_file .. ".txt", "r")
+            local cfg = json.decode(file:read("*a"))
+
+            for k, v in pairs(cfg) do
+                if v ~= "" then
+                    self._data_string[detail][k] = v
+                end
+            end
+
+            file:close()
+        end
+
+        self:SaveStrings()
+    end
+
+    function CustomDiscordStatus:LoadDefaultStrings()
+        local default_file = io.open(self._path .. "strings/strings_default.json", "r")
+        local json_data = json.decode(default_file:read("*a"))
+
+        for f_key, v in pairs(json_data) do
+            log(f_key)
+            self._data_string[f_key] = {}
+            for s_key, v_str in pairs(v) do
+                self._data_string[f_key][s_key] = v_str
+            end
+        end
+
+        default_file:close()
     end
 
     function CustomDiscordStatus:GetOption(id)
@@ -80,13 +131,13 @@ if not CustomDiscordStatus._setup then
             else
                 log("[Error] BLT could not open script '" .. file_name .. "'.")
             end
-        elseif self._mod_files[baseScript] then
-            log("pass")
         else
             log("[Error] Unregistered script called: " .. baseScript)
         end
     end
     
+    CustomDiscordStatus:Load()
+    CustomDiscordStatus:LoadStrings()
     CustomDiscordStatus._setup = true
 
     log("[CustomDiscordStatus Info] CustomDiscordStatus was succeessfully loaded!")
