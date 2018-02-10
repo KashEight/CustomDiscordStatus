@@ -1,11 +1,12 @@
 core:module("PlatformManager")
 
+local CustomDiscordStatus = _G.CustomDiscordStatus
 local set_rich_presence_discord_original = WinPlatformManager.set_rich_presence_discord
 local update_discord_heist_original = WinPlatformManager.update_discord_heist
 
 function WinPlatformManager:set_rich_presence_discord(name)
     set_rich_presence_discord_original(self, name)
-
+    
     if CustomDiscordStatus:GetOption("custom_strings") then
         if name == "Idle" then
             Discord:set_status("CustomDiscordStatus", "Debugging: ")
