@@ -33,14 +33,14 @@ function WinPlatformManager:set_rich_presence_discord(name)
         day_string = managers.localization:text("discord_rp_day_string", {day = tostring(managers.job:current_stage())})
     end
     
-    day_string = CustomDiscordStatus._data_string["day"][day_string]
+    day_string = CustomDiscordStatus._data_string["day"][day_string] or day_string
 
 	if managers.crime_spree and managers.crime_spree:is_active() then
 		local level_id = Global.game_settings.level_id
 		local name_id = level_id and _G.tweak_data.levels[level_id] and _G.tweak_data.levels[level_id].name_id
 
 		if name_id then
-			job_name = managers.localization:text(name_id) or job_name
+		    job_name = managers.localization:text(name_id) or job_name
 		end
 	end
 
