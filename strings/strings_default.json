@@ -1,18 +1,29 @@
 {
     "heist": {
-        "hoge": "fuwa",
-        "foo": "bar"
+        
     },
     "heist_image": {
-        "hoge": "fuwa"
+        
     },
     "difficulty": {
-        "hoge": "fuwa"
+        "normal": "NORMAL",
+        "hard": "HARD",
+        "overkill": "VERY HARD",
+        "overkill_145": "OVERKILL",
+        "easy_wish": "MAYHEM",
+        "overkill_290": "DEATH WISH",
+        "sm_wish": "ONE DOWN"
     },
     "day": {
-        "hoge": "fuwa"
+        "": "",
+        "day 1": "day 1",
+        "day 2": "day 2",
+        "day 3": "day 3"
     },
     "character": {
-        "hoge": "fuwa"
+        
+    },
+    "level": {
+
     }
 }

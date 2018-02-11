@@ -25,7 +25,8 @@ if not CustomDiscordStatus._setup then
         "strings_character",
         "strings_day",
         "strings_heist_image",
-        "strings_heist"
+        "strings_heist",
+        "strings_level"
     }
 
     function CustomDiscordStatus:Save()
@@ -75,8 +76,23 @@ if not CustomDiscordStatus._setup then
         end
     end
 
-    function CustomDiscordStatus:LoadStrings()
-        self:LoadDefaultStrings()
+    function CustomDiscordStatus:LoadStrings(is_init)
+        local save_file = io.open(self._data_string_path, "r")
+
+        if not save_file or is_init then
+            self:LoadDefaultStrings()
+        else
+            local json_data = json.decode(save_file:read("*a"))
+
+            for f_key, v in pairs(json_data) do
+                self._data_string[f_key] = {}
+                for s_key, v_str in pairs(v) do
+                    self._data_string[f_key][s_key] = v_str
+                end
+            end
+        end
+
+        save_file:close()
 
         for _, string_file in pairs(self._strings) do
             local detail = string.gsub(string_file, "^strings_", "")
@@ -100,7 +116,6 @@ if not CustomDiscordStatus._setup then
         local json_data = json.decode(default_file:read("*a"))
 
         for f_key, v in pairs(json_data) do
-            log(f_key)
             self._data_string[f_key] = {}
             for s_key, v_str in pairs(v) do
                 self._data_string[f_key][s_key] = v_str
@@ -139,6 +154,14 @@ if not CustomDiscordStatus._setup then
     CustomDiscordStatus:Load()
     CustomDiscordStatus:LoadStrings()
     CustomDiscordStatus._setup = true
+
+    for k, v in pairs(CustomDiscordStatus._data_string) do
+        log("f_key: " .. k)
+        log("v: " .. tostring(v))
+        for k2, v2 in pairs(v) do
+            log("s_key: " .. k2 .. ", " .. "value: " .. v2)
+        end
+    end
 
     log("[CustomDiscordStatus Info] CustomDiscordStatus was succeessfully loaded!")
 end
