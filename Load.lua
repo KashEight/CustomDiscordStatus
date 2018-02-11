@@ -152,16 +152,8 @@ if not CustomDiscordStatus._setup then
     end
     
     CustomDiscordStatus:Load()
-    CustomDiscordStatus:LoadStrings()
+    CustomDiscordStatus:LoadStrings(true)
     CustomDiscordStatus._setup = true
-
-    for k, v in pairs(CustomDiscordStatus._data_string) do
-        log("f_key: " .. k)
-        log("v: " .. tostring(v))
-        for k2, v2 in pairs(v) do
-            log("s_key: " .. k2 .. ", " .. "value: " .. v2)
-        end
-    end
 
     log("[CustomDiscordStatus Info] CustomDiscordStatus was succeessfully loaded!")
 end
