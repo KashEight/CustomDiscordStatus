@@ -96,7 +96,7 @@ if not CustomDiscordStatus._setup then
 
         for _, string_file in pairs(self._strings) do
             local detail = string.gsub(string_file, "^strings_", "")
-            local file = io.open(self._path .. "strings/" .. string_file .. ".txt", "r")
+            local file = io.open(self._path .. "strings/txt/" .. string_file .. ".txt", "r")
             local cfg = json.decode(file:read("*a"))
 
             for k, v in pairs(cfg) do

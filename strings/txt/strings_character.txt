@@ -2,7 +2,7 @@
     "dallas": "",
     "wolf": "",
     "chains": "",
-    "hoxtom": "",
+    "hoxton": "",
     "jowi": "",
     "old_hoxton": "",
     "female_1": "",
