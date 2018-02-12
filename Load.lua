@@ -166,4 +166,6 @@ end
     TODO:
     Write PlatformManager.lua - Middle
     Write realtime update - Low
+    Write strings_level.txt - High
+    Write higher settings - Middle
 ]]

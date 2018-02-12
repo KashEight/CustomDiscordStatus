@@ -1,5 +1,5 @@
 {
-    "name": "CustomDiscordStatus",
+    "name": "Custom Discord Status",
     "description": "Change playing details of Discord",
     "author": "kash(Hytus)",
     "contact": "https://github.com/KashEight",
