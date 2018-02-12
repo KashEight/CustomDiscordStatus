@@ -7,6 +7,7 @@
     "priority": 810,
     "blt_version": 2,
     "color": "114 137 218",
+    "image": "icon.png"
     "updates": [
         {
             "identifier": "cds"
