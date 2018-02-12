@@ -1,10 +1,10 @@
 {
+    "not_selected": "-",
     "normal": "",
     "hard": "",
     "overkill": "",
     "overkill_145": "",
     "easy_wish": "",
-    "overkill_290": "DEATH WISH",
-    "sm_wish": "ONE DOWN",
-    "not_selected": "-"
+    "overkill_290": "",
+    "sm_wish": ""
 }
