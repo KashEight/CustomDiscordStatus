@@ -1,6 +1,6 @@
 Introdution:
  This is all strings this mod use.
- If you want to change the strings, you need to change value (not a key).
+ If you want to change the strings, you need to change the value (not a key).
 
 Style: JSON
 
@@ -121,3 +121,6 @@ strings_heist.txt / strings_heist_image.txt     - heist strings
     "heist_brb"                     -> Brooklyn Bank
     "heist_hvh"                     -> Cursed Kill Room
     "heist_wwh"                     -> Alaskan Deal
+
+strings_level.txt                       - stage strings in crime spree (Now editing)
+    
