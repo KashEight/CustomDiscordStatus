@@ -1,5 +1,5 @@
 {
-    "not_selected": "-",
+    "not_selected": "",
     "normal": "",
     "hard": "",
     "overkill": "",

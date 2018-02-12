@@ -12,8 +12,7 @@ function WinPlatformManager:set_rich_presence_discord(name)
         local character = _G.CriminalsManager.convert_old_to_new_character_workname(managers.blackmarket:get_preferred_character())
         local character_name = CustomDiscordStatus._data_string["character"][character] or managers.localization:text("menu_" .. managers.blackmarket:get_preferred_character())
         local small_image = "c_" .. character
-        log(character .. ", " .. character_name)
-
+        
         Discord:set_small_image(small_image, character_name)
 
         local job_data = managers.job:current_job_data()
@@ -22,7 +21,6 @@ function WinPlatformManager:set_rich_presence_discord(name)
         local job_difficulty = _G.tweak_data.difficulties[managers.job:current_difficulty_stars() + 2] or 1
         local job_difficulty_text = CustomDiscordStatus._data_string["difficulty"][job_difficulty] or managers.localization:to_upper_text(_G.tweak_data.difficulty_name_ids[job_difficulty])
         local large_image = job_id
-        log(job_name .. ", " .. job_id)
 
         if CustomDiscordStatus._data_string["heist"][job_id] then
             job_name = CustomDiscordStatus._data_string["heist"][job_id]
@@ -66,7 +64,6 @@ function WinPlatformManager:update_discord_heist()
             local job_difficulty = _G.tweak_data.difficulties[managers.job:current_difficulty_stars() + 2] or 1
             local job_difficulty_text = CustomDiscordStatus._data_string["difficulty"][job_difficulty] or managers.localization:to_upper_text(_G.tweak_data.difficulty_name_ids[job_difficulty])
             local large_image = job_id
-            log(job_name .. ", " .. job_id)
 
             if CustomDiscordStatus._data_string["heist"][job_id] then
                 job_name = CustomDiscordStatus._data_string["heist"][job_id]
@@ -104,7 +101,6 @@ function WinPlatformManager:update_discord_character()
     local character = _G.CriminalsManager.convert_old_to_new_character_workname(managers.blackmarket:get_preferred_character())
     local character_name = CustomDiscordStatus._data_string["character"][character] or managers.localization:text("menu_" .. managers.blackmarket:get_preferred_character())
     local small_image = "c_" .. character
-    log(character .. ", " .. character_name)
 
     Discord:set_small_image(small_image, character_name)
 end  

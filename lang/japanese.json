@@ -4,13 +4,13 @@
     "customdiscordstatus_core": "Core options",
     "customdiscordstatus_core_desc": "Setting core options",
     "lang": "Language",
-    "lang_desc": "Select language you use.",
+    "lang_desc": "使用する言語を選択します。",
     "lang_english": "English",
     "lang_japanese": "日本語",
     "custom_strings": "Custom strings",
-    "custom_strings_desc": "Enable custom strings. (Can edit at strings.json)",
-    "show_host": "Show host",
-    "show_host_desc": "Show host on Discord.",
-    "show_member": "Show member",
-    "show_member_desc": "Show member on Discord."
+    "custom_strings_desc": "Custom Stringsを有効化します。(strings/*.txtから編集できます。)",
+    "show_host": "ホストの表示",
+    "show_host_desc": "Discord上にホストを表示します。",
+    "show_member": "メンバーの表示",
+    "show_member_desc": "Discord上にメンバーを表示します。"
 }

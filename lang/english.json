@@ -8,7 +8,7 @@
     "lang_english": "English",
     "lang_japanese": "日本語",
     "custom_strings": "Custom strings",
-    "custom_strings_desc": "Enable custom strings. (Can edit at strings.json)",
+    "custom_strings_desc": "Enable custom strings. (Can edit from strings/*.txt)",
     "show_host": "Show host",
     "show_host_desc": "Show host on Discord.",
     "show_member": "Show member",
