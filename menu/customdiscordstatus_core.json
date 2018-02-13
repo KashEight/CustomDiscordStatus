@@ -47,6 +47,19 @@
             "callback": "callback_show_member",
             "value": "show_member",
             "default_value": true
+        },
+        {
+            "type": "divider",
+            "size": 16
+        },
+        {
+            "type": "toggle",
+            "id": "higher_settings",
+            "title": "higher_settings",
+            "description": "higher_settings_desc",
+            "callback": "callback_higher_settings",
+            "value": "higher_settings",
+            "default_value": false
         }
     ]
 }

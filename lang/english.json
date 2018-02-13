@@ -12,5 +12,7 @@
     "show_host": "Show host",
     "show_host_desc": "Show host on Discord.",
     "show_member": "Show member",
-    "show_member_desc": "Show member on Discord."
+    "show_member_desc": "Show member on Discord.",
+    "higher_settings": "Higher Settings",
+    "higher_settings_desc": "Enable higher settings."
 }

@@ -12,5 +12,7 @@
     "show_host": "ホストの表示",
     "show_host_desc": "Discord上にホストを表示します。",
     "show_member": "メンバーの表示",
-    "show_member_desc": "Discord上にメンバーを表示します。"
+    "show_member_desc": "Discord上にメンバーを表示します。",
+    "higher_settings": "Higher Settings",
+    "higher_settings_desc": "Enable higher settings."
 }

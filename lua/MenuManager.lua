@@ -31,6 +31,10 @@ Hooks:Add("MenuManagerInitialize", "MenuManagerInitialize_CustomDiscordStatus", 
         CustomDiscordStatus._data.show_member = (item:value() == "on")
         CustomDiscordStatus:Save()
     end
+    MenuCallbackHandler.callback_higher_settings = function(self, item)
+        CustomDiscordStatus._data.higher_settings = (item:value() == "on")
+        CustomDiscordStatus:Save()
+    end
 
     CustomDiscordStatus:Load()
     CustomDiscordStatus:InitAllMenus()
