@@ -57,7 +57,7 @@ strings_heist.txt / strings_heist_image.txt     - heist strings
     "heist_watchdogs"               -> Watchdogs
     "heist_nightclub"               -> Nightclub
     "heist_ukrainian_job"           -> Ukrainian Job
-    "heist_jewelry_store"           -> Jewlry Store
+    "heist_jewelry_store"           -> Jewelry Store
     "heist_four_stores"             -> Four Stores
     "heist_mallcrasher"             -> Mallcrasher
     "heist_branchbank"              -> Bank Heist: Random
