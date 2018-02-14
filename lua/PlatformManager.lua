@@ -8,6 +8,14 @@ local update_discord_character_original = WinPlatformManager.update_discord_char
 function WinPlatformManager:set_rich_presence_discord(name)
     set_rich_presence_discord_original(self, name)
 
+    if Global.game_settings.permission == "private" then
+    
+    elseif Global.game_settings.permission == "friends_only" then
+    
+    else
+
+    end
+
     if CustomDiscordStatus:GetOption("custom_strings") then
         local character = _G.CriminalsManager.convert_old_to_new_character_workname(managers.blackmarket:get_preferred_character())
         local character_name = CustomDiscordStatus._data_string["character"][character] or managers.localization:text("menu_" .. managers.blackmarket:get_preferred_character())
