@@ -17,5 +17,7 @@
     "wild": "",
     "chico": "",
     "max": "",
-    "myh": ""
+    "myh": "",
+    "ecp_male": "",
+    "ecp_female": ""
 }

@@ -122,5 +122,50 @@ strings_heist.txt / strings_heist_image.txt     - heist strings
     "heist_hvh"                     -> Cursed Kill Room
     "heist_wwh"                     -> Alaskan Deal
 
-strings_level.txt                       - stage strings in crime spree (Now editing)
-    
+strings_level.txt                           - stage strings in crime spree
+    "heist_hox_3_hl"                    -> The Revenge (Hoxton Revenge)
+    "heist_fish_hl"                     -> The Yacht Heist
+    "heist_election_day_2_hl"           -> Swing Vote (Election Day day 2)
+    "heist_branchbank_hl"               -> Bank Heist
+    "heist_cage_hl"                     -> Car Shop
+    "heist_kosugi_hl"                   -> Shadow Raid
+    "heist_dark_hl"                     -> Murky Station
+    "heist_firestarter_2_hl"            -> FBI Server (Firestarter day 2)
+    "heist_framing_frame_3_hl"          -> Framing (Framing Frame day 3)
+    "heist_arm_for_hl"                  -> Transport: Train Heist
+    "heist_crojob2_hl"                  -> The Bomb: Dockyard
+    "heist_friend_hl"                   -> Scarface Mansion
+    "heist_red2_hl"                     -> First World Bank
+    "heist_mus_hl"                      -> The Diamond
+    "heist_roberts_hl"                  -> GO Bank
+    "heist_big_hl"                      -> The Big Bank
+    "heist_biker_train_hl"              -> Interception (The Biker Heist day 2)
+    "heist_firestarter_1_hl"            -> Air Port (Firestarter day 1)
+    "heist_arm_cro_hl"                  -> Transport: Crossroads
+    "heist_arm_und_hl"                  -> Transport: Underpass
+    "heist_arm_hcm_hl"                  -> Transport: Downtown
+    "heist_arm_par_hl"                  -> Transport: Park
+    "heist_arm_fac_hl"                  -> Transport: Harbor
+    "heist_nail_hl"                     -> Lab Rats
+    "heist_help_hl"                     -> Prison Nightmare
+    "heist_watchdogs_1_hl"              -> Truck Load (Watchdogs day 1)
+    "heist_pines_hl"                    -> White Xmas
+    "heist_moon_hl"                     -> Stealing Xmas
+    "heist_spa_hl"                      -> Brooklyn 10-10
+    "heist_cane_hl"                     -> Santa's Workshop
+    "heist_mia_2_hl"                    -> Four Floors (Hotline Miami day 2)
+    "heist_pbr2_hl"                     -> Birth of Sky
+    "heist_pal_hl"                      -> Counterfeit
+    "heist_born_hl"                     -> Lion's Den (The Biker Heist day 1)
+    "heist_hox_1_hl"                    -> The Breakout (Hoxton Breakout day 1)
+    "heist_mia_1_hl"                    -> Hotline Miami (Hotline Miami day 1)
+    "heist_pbr_hl"                      -> Beneath the Mountain
+    "heist_man_hl"                      -> Undercover
+    "heist_flat_hl"                     -> Panic Room
+    "heist_run_hl"                      -> Heat Street
+    "heist_dinner_hl"                   -> Slaughterhouse
+    "heist_jolly_hl"                    -> Aftershock
+    "heist_glace_hl"                    -> Green Bridge
+    "heist_rat_hl"                      -> Cook Off
+    "heist_welcome_to_the_jungle_2_hl"  -> Engine Problem (Big Oil day 2)
+    "heist_hox_2_hl"                    -> The Search (Hoxton Breakout day 2)
