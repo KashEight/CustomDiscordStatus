@@ -35,6 +35,18 @@ Hooks:Add("MenuManagerInitialize", "MenuManagerInitialize_CustomDiscordStatus", 
         CustomDiscordStatus._data.higher_settings = (item:value() == "on")
         CustomDiscordStatus:Save()
     end
+    MenuCallbackHandler.callback_show_public_room = function(self, item)
+        CustomDiscordStatus._data.show_public_room = (item:value() == "on")
+        CustomDiscordStatus:Save()
+    end
+    MenuCallbackHandler.callback_show_friends_only_room = function(self, item)
+        CustomDiscordStatus._data.show_friends_only_room = (item:value() == "on")
+        CustomDiscordStatus:Save()
+    end
+    MenuCallbackHandler.callback_show_private_room = function(self, item)
+        CustomDiscordStatus._data.show_private_room = (item:value() == "on")
+        CustomDiscordStatus:Save()
+    end
 
     CustomDiscordStatus:Load()
     CustomDiscordStatus:InitAllMenus()

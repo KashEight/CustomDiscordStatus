@@ -6,15 +6,15 @@ local update_discord_heist_original = WinPlatformManager.update_discord_heist
 local update_discord_character_original = WinPlatformManager.update_discord_character
 
 function WinPlatformManager:set_rich_presence_discord(name)
-    set_rich_presence_discord_original(self, name)
-
-    if Global.game_settings.permission == "private" then
-    
-    elseif Global.game_settings.permission == "friends_only" then
-    
-    else
-
+    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private") then
+        return
+    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only") then
+        return
+    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public") then
+        return
     end
+
+    set_rich_presence_discord_original(self, name)
 
     if CustomDiscordStatus:GetOption("custom_strings") then
         local character = _G.CriminalsManager.convert_old_to_new_character_workname(managers.blackmarket:get_preferred_character())
@@ -60,6 +60,14 @@ function WinPlatformManager:set_rich_presence_discord(name)
 end
 
 function WinPlatformManager:update_discord_heist()
+    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private") then
+        return
+    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only") then
+        return
+    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public") then
+        return
+    end
+
     update_discord_heist_original(self)
 
     if CustomDiscordStatus:GetOption("custom_strings") then
@@ -104,6 +112,14 @@ function WinPlatformManager:update_discord_heist()
 end
 
 function WinPlatformManager:update_discord_character()
+    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private") then
+        return
+    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only") then
+        return
+    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public") then
+        return
+    end
+    
     update_discord_character_original(self)
 
     local character = _G.CriminalsManager.convert_old_to_new_character_workname(managers.blackmarket:get_preferred_character())

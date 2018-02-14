@@ -2,7 +2,7 @@
     "menu_id": "customdiscordstatus_core",
     "parent_menu_id": "customdiscordstatus_options",
     "title": "customdiscordstatus_core",
-    "description": "customdiscordstatus_core_description",
+    "description": "customdiscordstatus_core_desc",
     "items": [
         {
             "type": "multiple_choice",
@@ -28,24 +28,6 @@
             "description": "custom_strings_desc",
             "callback": "callback_custom_strings",
             "value": "custom_strings",
-            "default_value": true
-        },
-        {
-            "type": "toggle",
-            "id": "show_host",
-            "title": "show_host",
-            "description": "show_host_desc",
-            "callback": "callback_show_host",
-            "value": "show_host",
-            "default_value": true
-        },
-        {
-            "type": "toggle",
-            "id": "show_member",
-            "title": "show_member",
-            "description": "show_member_desc",
-            "callback": "callback_show_member",
-            "value": "show_member",
             "default_value": true
         },
         {

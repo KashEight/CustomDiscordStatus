@@ -14,7 +14,8 @@ if not CustomDiscordStatus._setup then
     }
     CustomDiscordStatus._menus = {
         "customdiscordstatus_options.json",
-        "customdiscordstatus_core.json"
+        "customdiscordstatus_core.json",
+        "customdiscordstatus_room.json"
     }
     CustomDiscordStatus._language = {
         [1] = "english",
