@@ -93,7 +93,9 @@ if not CustomDiscordStatus._setup then
             end
         end
 
-        save_file:close()
+        if save_file then
+            save_file:close()
+        end
 
         for _, string_file in pairs(self._strings) do
             local detail = string.gsub(string_file, "^strings_", "")
