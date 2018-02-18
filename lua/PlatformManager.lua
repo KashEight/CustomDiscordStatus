@@ -4,17 +4,18 @@ local CustomDiscordStatus = _G.CustomDiscordStatus
 local set_rich_presence_discord_original = WinPlatformManager.set_rich_presence_discord
 local update_discord_heist_original = WinPlatformManager.update_discord_heist
 local update_discord_character_original = WinPlatformManager.update_discord_character
+local update_discord_party_size_original = WinPlatformManager.update_discord_party_size
 
 function WinPlatformManager:set_rich_presence_discord(name)
-    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private") then
+    set_rich_presence_discord_original(self, name)
+
+    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private_room") then
         return
-    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only") then
+    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only_room") then
         return
-    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public") then
+    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public_room") then
         return
     end
-
-    set_rich_presence_discord_original(self, name)
 
     if CustomDiscordStatus:GetOption("custom_strings") then
         local character = _G.CriminalsManager.convert_old_to_new_character_workname(managers.blackmarket:get_preferred_character())
@@ -60,15 +61,15 @@ function WinPlatformManager:set_rich_presence_discord(name)
 end
 
 function WinPlatformManager:update_discord_heist()
-    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private") then
+    update_discord_heist_original(self)
+
+    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private_room") then
         return
-    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only") then
+    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only_room") then
         return
-    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public") then
+    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public_room") then
         return
     end
-
-    update_discord_heist_original(self)
 
     if CustomDiscordStatus:GetOption("custom_strings") then
         local name = self._current_rich_presence
@@ -112,15 +113,15 @@ function WinPlatformManager:update_discord_heist()
 end
 
 function WinPlatformManager:update_discord_character()
-    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private") then
+    update_discord_character_original(self)
+
+    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private_room") then
         return
-    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only") then
+    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only_room") then
         return
-    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public") then
+    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public_room") then
         return
     end
-    
-    update_discord_character_original(self)
 
     local character = _G.CriminalsManager.convert_old_to_new_character_workname(managers.blackmarket:get_preferred_character())
     local character_name = CustomDiscordStatus._data_string["character"][character] or managers.localization:text("menu_" .. managers.blackmarket:get_preferred_character())
@@ -128,6 +129,19 @@ function WinPlatformManager:update_discord_character()
 
     Discord:set_small_image(small_image, character_name)
 end  
+
+function WinPlatformManager:update_discord_party_size()
+    update_discord_party_size_original(self)
+
+    if Global.game_settings.permission == "private" and not CustomDiscordStatus:GetOption("show_private_room") then
+        return
+    elseif Global.game_settings.permission == "friends_only" and not CustomDiscordStatus:GetOption("show_friends_only_room") then
+        return
+    elseif Global.game_settings.permission == "public" and not CustomDiscordStatus:GetOption("show_public_room") then
+        return
+    end
+end
+    
 
 function WinPlatformManager:apply_status(name, job_id, job_name, job_difficulty_text, day_string, large_image, small_image, character_name)
     if name == "Idle" then
