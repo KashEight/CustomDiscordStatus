@@ -7,10 +7,16 @@ Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_CustomDisc
 			log("[CustomDiscordStatus Info] Selected language: " .. str)
 			break
 		end
-	end
-	
+    end
+
 	lang:load_localization_file(CustomDiscordStatus._path .. "lang/english.json", false)
-	
+    
+    if CustomDiscordStatus:GetOption("higher_settings") then
+        local loc_path = CustomDiscordStatus._path .. "strings/loc/strings.txt"
+        
+        lang:load_localization_file(loc_path)
+    end
+    
 end)
 
 Hooks:Add("MenuManagerInitialize", "MenuManagerInitialize_CustomDiscordStatus", function(menu_manager)

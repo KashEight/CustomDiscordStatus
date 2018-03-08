@@ -145,10 +145,13 @@ end
 
 function WinPlatformManager:apply_status(name, job_id, job_name, job_difficulty_text, day_string, large_image, small_image, character_name)
     if name == "Idle" then
-        Discord:set_status("with CustomDiscordStatus Mod.", "Playing PAYDAY 2")
+        local default_under_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_idling_under") or "with CustomDiscordStatus Mod."
+        local default_upper_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_idling_upper") or "Playing PAYDAY 2"
+
+        Discord:set_status(default_under_text, default_upper_text)
     elseif name == "MPLobby" then
-        local default_under_text = managers.localization:text("discord_rp_lobby")
-        local default_up_text = managers.localization:text("discord_rp_lobby_details", {
+        local default_under_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_lobby") or managers.localization:text("discord_rp_lobby")
+        local default_upper_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_lobby_details") or managers.localization:text("discord_rp_lobby_details", {
             heist = job_name,
             difficulty = job_difficulty_text,
             day = day_string
@@ -156,25 +159,29 @@ function WinPlatformManager:apply_status(name, job_id, job_name, job_difficulty_
         local base_str = self:advance_strings()
         local job_name_image = CustomDiscordStatus._data_string["heist_image"][job_id] or job_name
 
-        Discord:set_status(default_under_text .. base_str, default_up_text)
+        Discord:set_status(default_under_text .. base_str, default_upper_text)
         Discord:set_large_image(large_image, job_name_image)
         Discord:set_small_image(small_image, character_name)
     elseif name == "SafeHousePlaying" then
-        Discord:set_status(managers.localization:text("discord_rp_safehouse"), managers.localization:text("discord_rp_safehouse_details", {heist = job_name}))
-    elseif name == "SPPlaying" then
-        local job_name_image = CustomDiscordStatus._data_string["heist_image"][job_id] or job_name
+        local default_under_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_safehouse") or managers.localization:text("discord_rp_safehouse")
+        local default_upper_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_safehouse_details") or managers.localization:text("discord_rp_safehouse_details", {heist = job_name})
 
-        Discord:set_status(managers.localization:text("discord_rp_single_heist"), managers.localization:text("discord_rp_single_heist_details", {
+        Discord:set_status(default_under_text, default_upper_text)
+    elseif name == "SPPlaying" then
+        local default_under_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_sp_heist") or managers.localization:text("discord_rp_single_heist")
+        local default_upper_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_sp_heist_details") or managers.localization:text("discord_rp_single_heist_details", {
 			heist = job_name,
 			difficulty = job_difficulty_text,
-			day = day_string
-        }))
-        
+            day = day_string
+        }) 
+        local job_name_image = CustomDiscordStatus._data_string["heist_image"][job_id] or job_name
+
+        Discord:set_status(default_under_text, default_upper_text)
         Discord:set_large_image(large_image, job_name_image)
 		Discord:set_small_image(small_image, character_name)
     elseif name == "MPPlaying" then
-        local default_under_text = managers.localization:text("discord_rp_mp_heist")
-        local default_up_text = managers.localization:text("discord_rp_mp_heist_details", {
+        local default_under_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_mp_heist") or managers.localization:text("discord_rp_mp_heist")
+        local default_upper_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_mp_heist_details") or managers.localization:text("discord_rp_mp_heist_details", {
 			heist = job_name,
 			difficulty = job_difficulty_text,
 			day = day_string
@@ -182,33 +189,35 @@ function WinPlatformManager:apply_status(name, job_id, job_name, job_difficulty_
         local base_str = self:advance_strings()
         local job_name_image = CustomDiscordStatus._data_string["heist_image"][job_id] or job_name
         
-        Discord:set_status(default_under_text .. base_str, default_up_text)
+        Discord:set_status(default_under_text .. base_str, default_upper_text)
         Discord:set_large_image(large_image, job_name_image)
 		Discord:set_small_image(small_image, character_name)
     elseif name == "SPEnd" then
-        local job_name_image = CustomDiscordStatus._data_string["heist_image"][job_id] or job_name
-
-        Discord:set_status(managers.localization:text("discord_rp_single_end"), managers.localization:text("discord_rp_single_end_details", {
+        local default_under_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_sp_end") or managers.localization:text("discord_rp_single_end")
+        local default_upper_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_sp_end_details") or managers.localization:text("discord_rp_single_end_details", {
 			heist = job_name,
 			day = day_string
-        }))
+        })
+        local job_name_image = CustomDiscordStatus._data_string["heist_image"][job_id] or job_name
+
+        Discord:set_status(default_under_text, default_upper_text)
         Discord:set_large_image(large_image, job_name_image)
 		Discord:set_small_image(small_image, character_name)
     elseif name == "MPEnd" then
-        local default_under_text = managers.localization:text("discord_rp_mp_end")
-        local default_up_text = managers.localization:text("discord_rp_mp_end_details", {
+        local default_under_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_mp_end") or managers.localization:text("discord_rp_mp_end")
+        local default_upper_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_mp_end_details") or managers.localization:text("discord_rp_mp_end_details", {
 			heist = job_name,
 			day = day_string
         })
         local base_str = self:advance_strings()
         local job_name_image = CustomDiscordStatus._data_string["heist_image"][job_id] or job_name
 
-        Discord:set_status(default_under_text .. base_str, default_up_text) 
+        Discord:set_status(default_under_text .. base_str, default_upper_text) 
         Discord:set_large_image(large_image, job_name_image)
         Discord:set_small_image(small_image, character_name)
     elseif name == "update_heist" then
-        local default_under_text = managers.localization:text("discord_rp_lobby")
-        local default_up_text = managers.localization:text("discord_rp_lobby_details", {
+        local default_under_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_lobby") or managers.localization:text("discord_rp_lobby")
+        local default_upper_text = CustomDiscordStatus:GetOption("higher_settings") and managers.localization:text("cds_lobby_details") or managers.localization:text("discord_rp_lobby_details", {
             heist = job_name,
             difficulty = job_difficulty_text,
             day = day_string
@@ -216,7 +225,7 @@ function WinPlatformManager:apply_status(name, job_id, job_name, job_difficulty_
         local base_str = self:advance_strings()
         local job_name_image = CustomDiscordStatus._data_string["heist_image"][job_id] or job_name
 
-        Discord:set_status(default_under_text .. base_str, default_up_text)
+        Discord:set_status(default_under_text .. base_str, default_upper_text)
         Discord:set_large_image(large_image, job_name_image)
     end
 end
