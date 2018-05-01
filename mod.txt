@@ -3,7 +3,7 @@
     "description": "Change playing details of Discord",
     "author": "kash(Hytus)",
     "contact": "https://github.com/KashEight",
-    "version": "v0.1",
+    "version": "v0.2",
     "priority": 810,
     "blt_version": 2,
     "color": "114 137 218",
