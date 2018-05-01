@@ -232,24 +232,29 @@ end
 
 function WinPlatformManager:advance_strings()
     local base_str = ""
-    local peers = CustomDiscordStatus:Peers()
+    local peers = managers.network:session():all_peers()
+    local host_name = peers and peers[1]:name() or ""
 
-    if CustomDiscordStatus:GetOption("show_host") and CustomDiscordStatus:GetOption("show_member") then
-        base_str = " | Host: " .. peers[1]:name() .. ", Member: " .. peers[1]:name()
+    if host_name then
+        if CustomDiscordStatus:GetOption("show_host") and CustomDiscordStatus:GetOption("show_member") then
+            base_str = " | Host: " .. host_name .. ", Member: "
 
-        for i = 2, #peers do
-            base_str = base_str .. ", " .. peers[i]:name()
+            for i = 2, #peers do
+                base_str = base_str .. ", " .. peers[i]:name()
+            end
+
+        elseif CustomDiscordStatus:GetOption("show_member") then
+            base_str = " | Member: " .. host_name
+
+            for i = 2, #peers do
+                base_str = base_str .. ", " .. peers[i]:name()
+            end
+
+        elseif CustomDiscordStatus:GetOption("show_host") then
+            base_str = " | Host: " .. host_name
         end
-
-    elseif CustomDiscordStatus:GetOption("show_member") then
-        base_str = " | Member: " .. peers[1]:name()
-
-        for i = 2, #peers do
-            base_str = base_str .. ", " .. peers[i]:name()
-        end
-
-    elseif CustomDiscordStatus:GetOption("show_host") then
-        base_str = " | Host: " .. peers[1]:name()
+    else
+        log("[CDS][ERROR] Could not get host_name!")
     end
 
     return base_str

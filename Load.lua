@@ -132,14 +132,6 @@ if not CustomDiscordStatus._setup then
         return self._data[id]
     end
 
-    function CustomDiscordStatus:Session()
-        return managers.network:session()
-    end
-
-    function CustomDiscordStatus:Peers()
-        return self:Session():all_peers()
-    end
-
     function CustomDiscordStatus:doScript(script)
         local baseScript = script:lower()
         if self._hooks[baseScript] then
@@ -158,7 +150,7 @@ if not CustomDiscordStatus._setup then
     CustomDiscordStatus:LoadStrings(true)
     CustomDiscordStatus._setup = true
 
-    log("[CustomDiscordStatus Info] CustomDiscordStatus was succeessfully loaded!")
+    log("[CDS][INFO] CustomDiscordStatus was succeessfully loaded!")
 end
 
 if RequiredScript then

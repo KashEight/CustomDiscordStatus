@@ -4,7 +4,7 @@ Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_CustomDisc
 		local langid = CustomDiscordStatus:GetOption("lang")
 		if str == CustomDiscordStatus._language[langid] then
 			lang:load_localization_file(CustomDiscordStatus._path .. "lang/" .. filename)
-			log("[CustomDiscordStatus Info] Selected language: " .. str)
+			log("[CDS][INFO] Selected language: " .. str)
 			break
 		end
     end
